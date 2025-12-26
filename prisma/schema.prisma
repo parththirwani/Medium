@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  blogs     Blog[]
+}
+
+model Blog {
+  id          String           @id @default(uuid())
+  slug        String           @unique
+  title       String
+  description String
+  content     String?
+  status      BlogStatus       @default(DRAFT)
+  minRead     Int
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  visibility  VisibilityStatus @default(PRIVATE)
+  authorId    String
+  author      User             @relation(fields: [authorId], references: [id])
+  tags        BlogTag[]
+}
+
+model Tag {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  slug      String    @unique
+  blogs     BlogTag[]
+  createdAt DateTime  @default(now())
+}
+
+model BlogTag {
+  blogId    String
+  tagId     String
+  blog      Blog     @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([blogId, tagId])
+}
+
+enum BlogStatus {
+  DRAFT
+  POSTED
+}
+
+enum VisibilityStatus {
+  PRIVATE
+  PUBLIC
+}
