@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Blog" ALTER COLUMN "minRead" DROP NOT NULL;

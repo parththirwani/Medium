@@ -9,10 +9,10 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  username  String   @unique
+  id        String             @id @default(uuid())
+  username  String             @unique
   password  String
-  createdAt DateTime @default(now())
+  createdAt DateTime           @default(now())
   blogs     Blog[]
 }
 
@@ -23,7 +23,7 @@ model Blog {
   description String
   content     String?
   status      BlogStatus       @default(DRAFT)
-  minRead     Int
+  minRead     Int?
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
   visibility  VisibilityStatus @default(PRIVATE)
@@ -33,19 +33,19 @@ model Blog {
 }
 
 model Tag {
-  id        String    @id @default(uuid())
-  name      String    @unique
-  slug      String    @unique
+  id        String             @id @default(uuid())
+  name      String             @unique
+  slug      String             @unique
   blogs     BlogTag[]
-  createdAt DateTime  @default(now())
+  createdAt DateTime           @default(now())
 }
 
 model BlogTag {
   blogId    String
   tagId     String
-  blog      Blog     @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
+  blog      Blog               @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  tag       Tag                @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  createdAt DateTime           @default(now())
 
   @@id([blogId, tagId])
 }

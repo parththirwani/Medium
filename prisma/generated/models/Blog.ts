@@ -222,7 +222,7 @@ export type BlogGroupByOutputType = {
   description: string
   content: string | null
   status: $Enums.BlogStatus
-  minRead: number
+  minRead: number | null
   createdAt: Date
   updatedAt: Date
   visibility: $Enums.VisibilityStatus
@@ -259,7 +259,7 @@ export type BlogWhereInput = {
   description?: Prisma.StringFilter<"Blog"> | string
   content?: Prisma.StringNullableFilter<"Blog"> | string | null
   status?: Prisma.EnumBlogStatusFilter<"Blog"> | $Enums.BlogStatus
-  minRead?: Prisma.IntFilter<"Blog"> | number
+  minRead?: Prisma.IntNullableFilter<"Blog"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Blog"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Blog"> | Date | string
   visibility?: Prisma.EnumVisibilityStatusFilter<"Blog"> | $Enums.VisibilityStatus
@@ -275,7 +275,7 @@ export type BlogOrderByWithRelationInput = {
   description?: Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  minRead?: Prisma.SortOrder
+  minRead?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -294,7 +294,7 @@ export type BlogWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringFilter<"Blog"> | string
   content?: Prisma.StringNullableFilter<"Blog"> | string | null
   status?: Prisma.EnumBlogStatusFilter<"Blog"> | $Enums.BlogStatus
-  minRead?: Prisma.IntFilter<"Blog"> | number
+  minRead?: Prisma.IntNullableFilter<"Blog"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Blog"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Blog"> | Date | string
   visibility?: Prisma.EnumVisibilityStatusFilter<"Blog"> | $Enums.VisibilityStatus
@@ -310,7 +310,7 @@ export type BlogOrderByWithAggregationInput = {
   description?: Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  minRead?: Prisma.SortOrder
+  minRead?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
@@ -332,7 +332,7 @@ export type BlogScalarWhereWithAggregatesInput = {
   description?: Prisma.StringWithAggregatesFilter<"Blog"> | string
   content?: Prisma.StringNullableWithAggregatesFilter<"Blog"> | string | null
   status?: Prisma.EnumBlogStatusWithAggregatesFilter<"Blog"> | $Enums.BlogStatus
-  minRead?: Prisma.IntWithAggregatesFilter<"Blog"> | number
+  minRead?: Prisma.IntNullableWithAggregatesFilter<"Blog"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Blog"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Blog"> | Date | string
   visibility?: Prisma.EnumVisibilityStatusWithAggregatesFilter<"Blog"> | $Enums.VisibilityStatus
@@ -346,7 +346,7 @@ export type BlogCreateInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -361,7 +361,7 @@ export type BlogUncheckedCreateInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -376,7 +376,7 @@ export type BlogUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -391,7 +391,7 @@ export type BlogUncheckedUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -406,7 +406,7 @@ export type BlogCreateManyInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -420,7 +420,7 @@ export type BlogUpdateManyMutationInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -433,7 +433,7 @@ export type BlogUncheckedUpdateManyInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -555,8 +555,8 @@ export type EnumBlogStatusFieldUpdateOperationsInput = {
   set?: $Enums.BlogStatus
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
   increment?: number
   decrement?: number
   multiply?: number
@@ -588,7 +588,7 @@ export type BlogCreateWithoutAuthorInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -602,7 +602,7 @@ export type BlogUncheckedCreateWithoutAuthorInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -645,7 +645,7 @@ export type BlogScalarWhereInput = {
   description?: Prisma.StringFilter<"Blog"> | string
   content?: Prisma.StringNullableFilter<"Blog"> | string | null
   status?: Prisma.EnumBlogStatusFilter<"Blog"> | $Enums.BlogStatus
-  minRead?: Prisma.IntFilter<"Blog"> | number
+  minRead?: Prisma.IntNullableFilter<"Blog"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Blog"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Blog"> | Date | string
   visibility?: Prisma.EnumVisibilityStatusFilter<"Blog"> | $Enums.VisibilityStatus
@@ -659,7 +659,7 @@ export type BlogCreateWithoutTagsInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -673,7 +673,7 @@ export type BlogUncheckedCreateWithoutTagsInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -703,7 +703,7 @@ export type BlogUpdateWithoutTagsInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -717,7 +717,7 @@ export type BlogUncheckedUpdateWithoutTagsInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -731,7 +731,7 @@ export type BlogCreateManyAuthorInput = {
   description: string
   content?: string | null
   status?: $Enums.BlogStatus
-  minRead: number
+  minRead?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   visibility?: $Enums.VisibilityStatus
@@ -744,7 +744,7 @@ export type BlogUpdateWithoutAuthorInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -758,7 +758,7 @@ export type BlogUncheckedUpdateWithoutAuthorInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -772,7 +772,7 @@ export type BlogUncheckedUpdateManyWithoutAuthorInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
-  minRead?: Prisma.IntFieldUpdateOperationsInput | number
+  minRead?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visibility?: Prisma.EnumVisibilityStatusFieldUpdateOperationsInput | $Enums.VisibilityStatus
@@ -896,7 +896,7 @@ export type $BlogPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     description: string
     content: string | null
     status: $Enums.BlogStatus
-    minRead: number
+    minRead: number | null
     createdAt: Date
     updatedAt: Date
     visibility: $Enums.VisibilityStatus
